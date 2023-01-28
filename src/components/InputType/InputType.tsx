@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 import './InputType.css';
 
-export default function InputType() {
-  const [inputValue, setInputValue] = useState('');
-  const [showInputValue, setShowInputValue] = useState(false);
+interface Props { }
 
-  const handleButtonClick = () => {
-    setShowInputValue(true);
+export const InputType: React.FC<Props> = () => {
+  const [inputValue, setInputValue] = useState('');
+  const [showInputValue, setShowInputValue] = useState<string[]>([]);
+
+  const handleButtonClick = (): void => {
+    setShowInputValue([...showInputValue, inputValue]);
+    setInputValue('');
   }
+
+  const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleButtonClick();
+    }
+  };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -15,11 +24,14 @@ export default function InputType() {
 
   return (
     <div>
-      <input onChange={handleInputChange} />
+      <input value={inputValue} onChange={handleInputChange} onKeyDown={handleInputKeyDown} />
       <button onClick={handleButtonClick}>
-        Print Input
+        Adicionar Pergunta
       </button>
-      {showInputValue && <p>{inputValue}</p>}
+      {showInputValue.map((value, index) => (
+        <p key={index}>{value}</p>
+      ))}
     </div>
   );
+
 }

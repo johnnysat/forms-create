@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import InputType from './components/InputType/InputType'
+import { InputType } from "./components/InputType/InputType";
+
 
 function App() {
   const [count, setCount] = useState(0)
