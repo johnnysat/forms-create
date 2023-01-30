@@ -10,6 +10,9 @@ function App() {
     <div className="App">
       <h1>Hello World!</h1>
       <InputType />
+      <InputType />
+      <InputType />
+
     </div>
   )
 }
