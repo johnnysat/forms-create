@@ -1,10 +1,8 @@
-import { useState } from 'react'
 import './App.css'
 import { InputType } from "./components/InputType/InputType";
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
@@ -12,7 +10,7 @@ function App() {
       <InputType />
       <InputType />
       <InputType />
-
+      <InputType />
     </div>
   )
 }
