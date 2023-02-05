@@ -1,6 +1,6 @@
 import './App.css'
 import { InputType } from "./components/InputType/InputType";
-import { RangedType } from "./components/InputType/RangedType";
+import QuestionForm from './components/RangedType/QuestionForm';
 
 
 
@@ -8,8 +8,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello World!</h1>
       <InputType />
+      <QuestionForm />
+
     </div>
   )
 }
